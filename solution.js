@@ -20,7 +20,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   */
 
   // Modify the line of code BELOW to run a different exercise
-  exercise_01();
+  exercise_08();
   // Modify the line of code ABOVE to run a different exercise
 }
 
@@ -29,12 +29,12 @@ export function exercise_01() {
    
     Exercise 1: Function Declarations and Naming Conventions
 
-    Problem:
+    Write a function declaration named calculateArea that takes the radius of a 
+    circle as a parameter and returns the area of the circle. 
 
-  Write a function declaration named calculateArea that takes the radius of a 
-  circle as a parameter and returns the area of the circle. 
-  The formula for the area of a circle is PI * radius * radius
-  Use proper naming conventions for functions in JavaScript.
+    The formula for the area of a circle: PI * radius * radius
+    
+    Use proper naming conventions for functions in JavaScript.
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -60,12 +60,14 @@ export function exercise_01() {
 export function exercise_02() {
   /* 
    
-    Exercise 2
-    
     Exercise 2: Function Expressions and Their Uses
-Problem:
 
-Convert the calculateArea function from Exercise 1 into a function expression and assign it to a variable called calculateArea.
+    Problem:
+
+    Convert the calculateArea function from Exercise 1 into 
+    a function expression and assign it to a variable called calculateArea.
+
+    Run it and log the output
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -74,13 +76,16 @@ Convert the calculateArea function from Exercise 1 into a function expression an
   };
 
   // Usage:
-  console.log(calculateArea(5)); // Outputs: 78.53981633974483
+  console.log(calculateArea(10)); // Outputs: 314.1592653589793
 
   /*  
+
     Explanation:
 
-The function is assigned to a constant variable calculateArea.
-Function expressions can be used to assign functions to variables or pass them as arguments.
+    The function is assigned to a constant variable calculateArea.
+    Function expressions can be used to 
+    assign functions to variables or pass them as arguments.
+
   */
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -89,29 +94,30 @@ export function exercise_03() {
   /* 
     
     Exercise 3: Arrow Functions and How They Differ from Traditional Functions
-Problem:
+    
+    Problem:
 
-Rewrite the calculateArea function as an arrow function.
+    Rewrite the calculateArea function as an arrow function.
   
   */
   // CODE IN THE OPEN LINES BELOW
-  const calculateArea = (radius) => {
+  const calculateAreaArrow = (radius) => {
     return Math.PI * radius * radius;
   };
 
   // Simplified version:
-  const calculateArea_simpler = (radius) => Math.PI * radius * radius;
+  const calculateAreaSimplerArrow = (radius) => Math.PI * radius * radius;
 
   // Usage:
-  console.log(calculateArea(5)); // Outputs: 78.53981633974483
+  console.log(calculateAreaArrow(5)); // Outputs: 78.53981633974483
 
   /*
 
   Explanation:
 
-Arrow functions provide a concise syntax.
-Parentheses can be omitted for single parameters.
-The return statement can be omitted for single-expression functions.
+    Arrow functions provide a concise syntax.
+    Parentheses can be omitted for single parameters.
+    The return statement can be omitted for single-expression functions.
 
   */
   // CODE IN THE OPEN LINES ABOVE
@@ -121,9 +127,13 @@ export function exercise_04() {
   /* 
    
     Exercise 4: Using Functions to Validate and Transform Data
-Problem:
 
-Write a function isValidEmail that takes a string and returns true if it is a valid email address, and false otherwise. For simplicity, consider an email valid if it contains exactly one @ symbol and at least one . after the @.
+    Problem:
+
+    Write a function isValidEmail that takes a string and returns true 
+    if it is a valid email address, and false otherwise. 
+    For simplicity, consider an email valid if it contains 
+    exactly one @ symbol and at least one . after the @.
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -139,13 +149,13 @@ Write a function isValidEmail that takes a string and returns true if it is a va
 
   // Usage:
   console.log(isValidEmail("test@example.com")); // Outputs: true
-  console.log(isValidEmail("invalid-email")); // Outputs: false
+  console.log(isValidEmail(".invalid-@email")); // Outputs: false
 
   /*
 Explanation:
 
-The function checks for the presence of @ and . in appropriate positions.
-It ensures basic email structure without using complex regex.
+    The function checks for the presence of @ and . in appropriate positions.
+    It ensures basic email structure without using complex regex.
   */
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -154,9 +164,13 @@ export function exercise_05() {
   /* 
    
    Exercise 5: Function Parameters, Including Default Values
-Problem:
 
-Write a function greet that takes a name and an optional greeting message. If no greeting is provided, it should default to 'Hello'. The function should return a greeting message.
+    Problem:
+
+    Write a function greet that takes a name and an optional greeting message. 
+    If no greeting is provided, it should default to 'Hello'. 
+    The function should return a greeting message.
+  Then, log the return of this function to the console
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -181,9 +195,10 @@ export function exercise_06() {
   /* 
    
    Exercise 6: Understanding Local and Global Scope
-Problem:
 
-Consider the following code. What will be logged to the console and why?
+    Problem:
+
+    Consider the following code. What will be logged to the console and why?
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -204,22 +219,27 @@ Consider the following code. What will be logged to the console and why?
   */
 
   /*
-Explanation:
+    Explanation:
 
-Inside showMessage, the local variable message shadows the global variable.
-console.log(message); inside the function logs 'Local'.
-Outside the function, it logs the global message which is 'Global'.
-    */
+    Inside showMessage, the local variable message shadows the global variable.
+    console.log(message); 
+    inside the function logs 'Local'.
+    Outside the function, it logs the global message which is 'Global'.
+  */
   // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_07() {
   /* 
    
-Exercise 7: How Function Scope Works and Variable Limitations
-Problem:
+    Exercise 7: How Function Scope Works and Variable Limitations
+    Problem:
 
-Write a function incrementCounter that declares a variable counter initialized to 0 inside it, increments counter by 1, and logs it to the console. Call incrementCounter twice. What will be logged each time and why can't we access counter outside the function?
+    Write a function incrementCounter that declares a variable counter 
+    initialized to 0 inside it, increments counter by 1, and logs it to the console. 
+    Call incrementCounter twice. 
+    What will be logged each time and why can't we access 
+    counter outside the function?
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -235,10 +255,10 @@ Write a function incrementCounter that declares a variable counter initialized t
   console.log(counter); // ReferenceError: counter is not defined
 
   /*
-Explanation:
+    Explanation:
 
-Each call to incrementCounter creates a new counter variable.
-counter is not accessible outside the function due to block scope.
+    Each call to incrementCounter creates a new counter variable.
+    counter is not accessible outside the function due to block scope.
   */
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -247,9 +267,12 @@ export function exercise_08() {
   /* 
    
    Exercise 8: Functions That Return Other Functions
-Problem:
 
-Write a function makeMultiplier that takes a number multiplier and returns a new function that takes a number and returns it multiplied by multiplier.
+    Problem:
+
+    Write a function makeMultiplier that takes a 'multiplier' number
+    and returns a new function that takes a number and 
+    returns it multiplied by multiplier.
 
   
   */
@@ -264,11 +287,14 @@ Write a function makeMultiplier that takes a number multiplier and returns a new
   const double = makeMultiplier(2);
   console.log(double(5)); // Outputs: 10
 
-  /*
-Explanation:
+  const costOfLivingAdjustment = makeMultiplier(1.03);
+  console.log(costOfLivingAdjustment(50000));
 
-makeMultiplier is a higher-order function.
-It returns a closure that remembers the multiplier value.
+  /*
+    Explanation:
+
+    makeMultiplier is a higher-order function.
+    It returns a closure that remembers the 'multiplier' value.
   */
   // CODE IN THE OPEN LINES ABOVE
 }
