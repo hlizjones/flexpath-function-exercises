@@ -20,7 +20,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   */
 
   // Modify the line of code BELOW to run a different exercise
-  exercise_01();
+  exercise_19();
   // Modify the line of code ABOVE to run a different exercise
 }
 
@@ -519,11 +519,12 @@ export function exercise_13() {
 export function exercise_14() {
   /* 
    
-Exercise 14: Reference Types and How They Are Passed Around
-Problem:
+    Exercise 14: Reference Types and How They Are Passed Around
 
-Write code to demonstrate that objects are passed by 
-reference by creating a function that adds a new property to an object passed as an argument.
+    Problem:
+
+    Write code to demonstrate that objects are passed by reference by creating 
+    a function that adds a new property to an object passed as an argument.
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -555,14 +556,16 @@ reference by creating a function that adds a new property to an object passed as
 
   console.log(rentObj);
 
-  // Outputs: { existingProperty: 'I exist', newProperty: 'I am new!' }
+  // CODE IN THE OPEN LINES ABOVE
+
   /*
-Explanation:
+  
+    Answer Explanation:
 
     The function addProperty modifies the original object.
     This demonstrates that objects are mutable and passed by reference.
+
   */
-  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_15() {
@@ -574,13 +577,14 @@ export function exercise_15() {
 
   /* 
    
-    Exercise 15: Working with Arrays Using forEach, filter, and find
-Problem:
+    Exercise 15: Working with Arrays using 'find'
 
-Given the array of user objects above, use find to 
-locate the user with the name 'Bob'.
+    Problem:
 
-Print this user object to the console
+    Given the array of user objects above, use the find() method to 
+    locate the user with the name 'Bob'.
+
+    Print this user object to the console
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -589,14 +593,15 @@ Print this user object to the console
   console.log(user);
   // Outputs: { id: 2, name: 'Bob' }
 
+  // CODE IN THE OPEN LINES ABOVE
   /*
 
-Explanation:
+    Answer Explanation:
 
-find returns the first element that satisfies the condition.
-It stops iterating once the element is found.
-*/
-  // CODE IN THE OPEN LINES ABOVE
+    'find' returns the first element that satisfies the condition.
+    It stops iterating once the element is found.
+
+  */
 }
 
 export function exercise_16() {
@@ -608,11 +613,11 @@ export function exercise_16() {
 
   /* 
    
-Exercise 16: Using Object.entries to Iterate Over Object Properties
-Problem:
+    Exercise 16: Using Object.entries to Iterate Over Object Properties
+    Problem:
 
-Given the person object above, use Object.entries to iterate 
-over the object's properties and print each key and value.
+    Given the 'person' object above, use Object.entries and .forEach to iterate 
+    over the object's properties and print each key and value.
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -620,17 +625,14 @@ over the object's properties and print each key and value.
     console.log(`${key}: ${value}`);
   });
 
-  // Outputs:
-  // name: John Doe
-  // age: 30
-  // occupation: Engineer
+  // CODE IN THE OPEN LINES ABOVE
+
   /*
-Explanation:
+    Answer Explanation:
 
     Object.entries converts the object into an array of key-value pairs.
     Destructuring is used in the callback function for clarity.
   */
-  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_17() {
@@ -640,9 +642,9 @@ export function exercise_17() {
 
     Problem:
 
-    Write a function capitalizeStrings that takes an array of strings and 
-    returns a new array with each 
-    string capitalized (first letter uppercase, rest lowercase).
+    Write a function 'capitalizeStrings' that takes an array of strings and 
+    returns a new array with each string in title case
+    (first letter uppercase, rest lowercase).
       
   */
   // CODE IN THE OPEN LINES BELOW
@@ -659,27 +661,31 @@ export function exercise_17() {
 
   console.log(capitalizedStrings);
   // Outputs: ['Apple', 'Banana', 'Cherry']
-  /*
-      Explanation:
-
-    map is used to create a new array with transformed elements.
-    String methods charAt, toUpperCase, and toLowerCase are used for capitalization.
-  */
   // CODE IN THE OPEN LINES ABOVE
+
+  /*
+      Answer Explanation:
+
+      'map' is used to create a new array with transformed elements.
+      String methods charAt, toUpperCase, and toLowerCase are used 
+      for capitalization.
+  */
 }
 
 export function exercise_18() {
   /* 
    
     Exercise 18: Using Default Parameters
-Problem:
 
-Write a function 'power' that calculates the power of a number. 
-The function should take two parameters: base and exponent, 
-with exponent defaulting to 2 if not provided.
+    Problem:
 
-Use Math.pow to find the power of a number
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/pow
+    Write a function 'power' that calculates the power of a number. 
+
+    The function should take two parameters: base and exponent, 
+    with exponent defaulting to 2 if not provided.
+
+    You can use Math.pow in your function to find the power of a number:
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/pow
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -690,13 +696,14 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
   // Usage:
   console.log(power(5)); // Outputs: 25 (5 squared)
   console.log(power(2, 3)); // Outputs: 8  (2 cubed)
-  /*
-Explanation:
-
-The exponent parameter defaults to 2.
-Math.pow is used to calculate the power.
-  */
   // CODE IN THE OPEN LINES ABOVE
+
+  /*
+    Answer Explanation:
+
+    The exponent parameter defaults to 2.
+    Math.pow is used to calculate the power.
+  */
 }
 
 export function exercise_19() {
@@ -708,18 +715,41 @@ export function exercise_19() {
 
     Write an IIFE(Immediately Invoked Function Expression)
 		
+    Here's a page with more details on IIFEs:
 		https://developer.mozilla.org/en-US/docs/Glossary/IIFE
   
   */
   // CODE IN THE OPEN LINES BELOW
   (() => {
-    process.env.APP_TEAM_MEMBERS_TO_SHOW_USERS = ["Bob", "Hank", "Jerry"];
+    process.env.DB_PASSWORD = 12345;
     process.env.APP_LANGUAGE = "en-US";
-    process.env.APP_CURRENCY = "USD";
+    process.env.APP_VERSION = "DEVELOPMENT";
   })();
 
-  console.log(process.env.APP_TEAM_MEMBERS_TO_SHOW_USERS);
-  console.log(process.env.APP_LANGUAGE);
-  console.log(process.env.APP_CURRENCY);
+  console.log("DB Password:", process.env.DB_PASSWORD);
+  console.log("App Language:", process.env.APP_LANGUAGE);
+  console.log(
+    "Version of app build currently running:",
+    process.env.APP_VERSION
+  );
   // CODE IN THE OPEN LINES ABOVE
+
+  /*
+
+    Answer Explanation
+
+    The above example uses an IIFE to set a bunch of environment variables
+    for an application. We can then access environment variables in Node.js
+    by using process.env.VARIABLE_NAME. 
+
+    Environment variables are a great way to keep track of sensitive shared values
+    in an app (like Database passwords) that change depending on what version
+    of the app you are running.
+
+    Right now our lessons are focused on the frontend, so we won't see them much.
+    
+    But, you'll gain a lot more experience with environment variables when you 
+    start the Java and SQL lesson modules later in this course.
+
+  */
 }
