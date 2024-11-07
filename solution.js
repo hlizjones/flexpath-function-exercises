@@ -20,7 +20,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   */
 
   // Modify the line of code BELOW to run a different exercise
-  exercise_21();
+  exercise_01();
   // Modify the line of code ABOVE to run a different exercise
 }
 
@@ -28,6 +28,8 @@ export function exercise_01() {
   /* 
    
     Exercise 1: Function Declarations and Naming Conventions
+
+    Problem:
 
     Write a function declaration named calculateArea that takes the radius of a 
     circle as a parameter and returns the area of the circle. 
@@ -38,23 +40,23 @@ export function exercise_01() {
   
   */
   // CODE IN THE OPEN LINES BELOW
+
   function calculateArea(radius) {
     return Math.PI * radius * radius;
   }
 
-  // Usage:
   console.log(calculateArea(5)); // Outputs: 78.53981633974483
 
+  // CODE IN THE OPEN LINES ABOVE
   /*
 
-    Explanation:
+    Answer Explanation:
 
     The function calculateArea is declared using the function keyword.
     It follows camelCase naming convention.
     It calculates the area using the formula πr².
 
   */
-  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_02() {
@@ -71,56 +73,56 @@ export function exercise_02() {
   
   */
   // CODE IN THE OPEN LINES BELOW
+
   const calculateArea = function (radius) {
     return Math.PI * radius * radius;
   };
 
-  // Usage:
   console.log(calculateArea(10)); // Outputs: 314.1592653589793
 
+  // CODE IN THE OPEN LINES ABOVE
   /*  
 
-    Explanation:
+    Answer Explanation:
 
     The function is assigned to a constant variable calculateArea.
     Function expressions can be used to 
     assign functions to variables or pass them as arguments.
 
   */
-  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_03() {
   /* 
     
     Exercise 3: Arrow Functions and How They Differ from Traditional Functions
-    
-    Problem:
 
+    Problem:
+    
     Rewrite the calculateArea function as an arrow function.
   
   */
   // CODE IN THE OPEN LINES BELOW
+
   const calculateAreaArrow = (radius) => {
     return Math.PI * radius * radius;
   };
 
-  // Simplified version:
+  // Simpler version since it a single-expression function:
   const calculateAreaSimplerArrow = (radius) => Math.PI * radius * radius;
 
-  // Usage:
   console.log(calculateAreaArrow(5)); // Outputs: 78.53981633974483
 
+  // CODE IN THE OPEN LINES ABOVE
   /*
 
-  Explanation:
+  Answer Explanation:
 
     Arrow functions provide a concise syntax.
     Parentheses can be omitted for single parameters.
     The return statement can be omitted for single-expression functions.
 
   */
-  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_04() {
@@ -132,11 +134,13 @@ export function exercise_04() {
 
     Write a function isValidEmail that takes a string and returns true 
     if it is a valid email address, and false otherwise. 
+
     For simplicity, consider an email valid if it contains 
     exactly one @ symbol and at least one . after the @.
   
   */
   // CODE IN THE OPEN LINES BELOW
+
   function isValidEmail(email) {
     const atSymbolIndex = email.indexOf("@");
     if (atSymbolIndex === -1) return false;
@@ -151,29 +155,34 @@ export function exercise_04() {
   console.log(isValidEmail("test@example.com")); // Outputs: true
   console.log(isValidEmail(".invalid-@email")); // Outputs: false
 
+  // CODE IN THE OPEN LINES ABOVE
+
   /*
-Explanation:
+
+    Answer Explanation:
 
     The function checks for the presence of @ and . in appropriate positions.
     It ensures basic email structure without using complex regex.
+
   */
-  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_05() {
   /* 
    
-   Exercise 5: Function Parameters, Including Default Values
+    Exercise 5: Function Parameters, Including Default Values
 
     Problem:
 
-    Write a function greet that takes a name and an optional greeting message. 
+    Write a function 'greet' that takes a name and an optional greeting message. 
     If no greeting is provided, it should default to 'Hello'. 
     The function should return a greeting message.
-  Then, log the return of this function to the console
+    
+    Then, log the return of this function to the console
   
   */
   // CODE IN THE OPEN LINES BELOW
+
   function greet(name, greeting = "Hello") {
     return `${greeting}, ${name}!`;
   }
@@ -182,13 +191,13 @@ export function exercise_05() {
   console.log(greet("Alice")); // Outputs: Hello, Alice!
   console.log(greet("Bob", "Good morning")); // Outputs: Good morning, Bob!
 
-  /*
-Explanation:
-
-The greeting parameter has a default value of 'Hello'.
-Template literals are used to construct the message.
-  */
   // CODE IN THE OPEN LINES ABOVE
+  /*
+    Answer Explanation:
+
+    The greeting parameter has a default value of 'Hello'.
+    Template literals are used to construct the message.
+  */
 }
 
 export function exercise_06() {
@@ -199,9 +208,10 @@ export function exercise_06() {
     Problem:
 
     Consider the following code. What will be logged to the console and why?
+
+    Write what you think in a code comment. Then run the code.
   
   */
-  // CODE IN THE OPEN LINES BELOW
   let message = "Global";
 
   function showMessage() {
@@ -213,36 +223,43 @@ export function exercise_06() {
   console.log(message);
 
   /*
-    Local
-    Global
+
+    Write what you think will happen IN THIS COMMENT BLOCK.
+    Then explain why the code behaved as it did.
 
   */
 
   /*
-    Explanation:
+
+    Answer Explanation:
 
     Inside showMessage, the local variable message shadows the global variable.
-    console.log(message); 
-    inside the function logs 'Local'.
+
+    Inside the function logs 'Local'.
     Outside the function, it logs the global message which is 'Global'.
+
   */
-  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_07() {
   /* 
    
     Exercise 7: How Function Scope Works and Variable Limitations
+
     Problem:
 
-    Write a function incrementCounter that declares a variable counter 
-    initialized to 0 inside it, increments counter by 1, and logs it to the console. 
+    Write a function 'incrementCounter' that declares a variable 'counter' 
+    initialized to 0 inside it, increments 'counter' by 1, and logs it to the console. 
+    
     Call incrementCounter twice. 
+    
     What will be logged each time and why can't we access 
-    counter outside the function?
+    counter outside the function? Provide your answer in a code comment below
+    the function.
   
   */
   // CODE IN THE OPEN LINES BELOW
+
   function incrementCounter() {
     let counter = 0;
     counter += 1;
@@ -254,29 +271,30 @@ export function exercise_07() {
 
   console.log(counter); // ReferenceError: counter is not defined
 
+  // CODE IN THE OPEN LINES ABOVE
   /*
-    Explanation:
+    Answer Explanation:
 
     Each call to incrementCounter creates a new counter variable.
-    counter is not accessible outside the function due to block scope.
+    'counter' is not accessible outside the function due to block scope.
   */
-  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_08() {
   /* 
    
-   Exercise 8: Functions That Return Other Functions
+    Exercise 8: Functions That Return Other Functions
 
     Problem:
 
-    Write a function makeMultiplier that takes a 'multiplier' number
+    Write a function 'makeMultiplier' that takes a 'multiplier' number
     and returns a new function that takes a number and 
-    returns it multiplied by multiplier.
+    returns that number multiplied by 'multiplier'.
 
   
   */
   // CODE IN THE OPEN LINES BELOW
+
   function makeMultiplier(multiplier) {
     return function (number) {
       return number * multiplier;
@@ -287,16 +305,20 @@ export function exercise_08() {
   const double = makeMultiplier(2);
   console.log(double(5)); // Outputs: 10
 
+  // Real world example
   const costOfLivingAdjustment = makeMultiplier(1.03);
   console.log(costOfLivingAdjustment(50000));
 
+  // CODE IN THE OPEN LINES ABOVE
+
   /*
-    Explanation:
+  
+    Answer Explanation:
 
     makeMultiplier is a higher-order function.
     It returns a closure that remembers the 'multiplier' value.
+
   */
-  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_09() {
