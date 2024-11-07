@@ -20,11 +20,11 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   */
 
   // Modify the line of code BELOW to run a different exercise
-  exercise_19();
+  exercise_01();
   // Modify the line of code ABOVE to run a different exercise
 }
 
-export function exercise_01() {
+function exercise_01() {
   /* 
    
     Exercise 1: Function Declarations and Naming Conventions
@@ -59,7 +59,7 @@ export function exercise_01() {
   */
 }
 
-export function exercise_02() {
+function exercise_02() {
   /* 
    
     Exercise 2: Function Expressions and Their Uses
@@ -92,7 +92,7 @@ export function exercise_02() {
   */
 }
 
-export function exercise_03() {
+function exercise_03() {
   /* 
     
     Exercise 3: Arrow Functions and How They Differ from Traditional Functions
@@ -125,7 +125,7 @@ export function exercise_03() {
   */
 }
 
-export function exercise_04() {
+function exercise_04() {
   /* 
    
     Exercise 4: Using Functions to Validate and Transform Data
@@ -167,7 +167,7 @@ export function exercise_04() {
   */
 }
 
-export function exercise_05() {
+function exercise_05() {
   /* 
    
     Exercise 5: Function Parameters, Including Default Values
@@ -200,7 +200,7 @@ export function exercise_05() {
   */
 }
 
-export function exercise_06() {
+function exercise_06() {
   /* 
    
    Exercise 6: Understanding Local and Global Scope
@@ -241,7 +241,7 @@ export function exercise_06() {
   */
 }
 
-export function exercise_07() {
+function exercise_07() {
   /* 
    
     Exercise 7: How Function Scope Works and Variable Limitations
@@ -280,7 +280,7 @@ export function exercise_07() {
   */
 }
 
-export function exercise_08() {
+function exercise_08() {
   /* 
    
     Exercise 8: Functions That Return Other Functions
@@ -321,7 +321,7 @@ export function exercise_08() {
   */
 }
 
-export function exercise_09() {
+function exercise_09() {
   /* 
    
     Exercise 9: Concepts and Use Cases for Recursive Functions
@@ -367,7 +367,7 @@ export function exercise_09() {
   */
 }
 
-export function exercise_10() {
+function exercise_10() {
   const fruits = ["apple", "banana", "cherry"];
   /* 
    
@@ -399,7 +399,7 @@ export function exercise_10() {
   */
 }
 
-export function exercise_11() {
+function exercise_11() {
   /* 
    
 Exercise 11: Replacing Traditional Loops with Functional Approaches
@@ -438,7 +438,7 @@ the reduce() method to calculate the sum of an array of numbers.
   */
 }
 
-export function exercise_12() {
+function exercise_12() {
   const numbers = [10, 15, 20, 25, 30];
   /* 
    
@@ -469,7 +469,7 @@ export function exercise_12() {
   */
 }
 
-export function exercise_13() {
+function exercise_13() {
   /* 
    
     Exercise 13: How JavaScript Handles Primitives and 
@@ -516,7 +516,7 @@ export function exercise_13() {
   */
 }
 
-export function exercise_14() {
+function exercise_14() {
   /* 
    
     Exercise 14: Reference Types and How They Are Passed Around
@@ -568,7 +568,7 @@ export function exercise_14() {
   */
 }
 
-export function exercise_15() {
+function exercise_15() {
   const users = [
     { id: 1, name: "Alice" },
     { id: 2, name: "Bob" },
@@ -604,7 +604,7 @@ export function exercise_15() {
   */
 }
 
-export function exercise_16() {
+function exercise_16() {
   const person = {
     name: "John Doe",
     age: 30,
@@ -635,7 +635,7 @@ export function exercise_16() {
   */
 }
 
-export function exercise_17() {
+function exercise_17() {
   /* 
    
     Exercise 17: Using Functions to Transform Data
@@ -672,7 +672,7 @@ export function exercise_17() {
   */
 }
 
-export function exercise_18() {
+function exercise_18() {
   /* 
    
     Exercise 18: Using Default Parameters
@@ -706,14 +706,15 @@ export function exercise_18() {
   */
 }
 
-export function exercise_19() {
+function exercise_19() {
   /* 
    
     Exercise 19
     
     Immediate Function: 
 
-    Write an IIFE(Immediately Invoked Function Expression)
+    Write an IIFE(Immediately Invoked Function Expression) that 
+    that logs information to the console. 
 		
     Here's a page with more details on IIFEs:
 		https://developer.mozilla.org/en-US/docs/Glossary/IIFE
@@ -724,14 +725,27 @@ export function exercise_19() {
     process.env.DB_PASSWORD = 12345;
     process.env.APP_LANGUAGE = "en-US";
     process.env.APP_VERSION = "DEVELOPMENT";
+
+    console.log("env vars inside the IIFE");
+    console.log("DB Password:", process.env.DB_PASSWORD);
+    console.log("App Language:", process.env.APP_LANGUAGE);
+    console.log(
+      "Version of app build currently running:",
+      process.env.APP_VERSION
+    );
+    console.log("--------------");
   })();
 
+  console.log(
+    "But LOOK! I can access these env vars outside the IIFE now that they're set up"
+  );
   console.log("DB Password:", process.env.DB_PASSWORD);
   console.log("App Language:", process.env.APP_LANGUAGE);
   console.log(
     "Version of app build currently running:",
     process.env.APP_VERSION
   );
+  console.log("--------");
   // CODE IN THE OPEN LINES ABOVE
 
   /*
