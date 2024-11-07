@@ -1,31 +1,60 @@
 import { fileURLToPath } from "url";
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  // To run the code you write for each exercise, change the text below to match the name
-  // of the exercise.
-  // For Example:
-  // If I want to run exercise_05 below, I would change the text from "exercise_01" to
-  // "exercise_05", save this file, and then when I run this file with `node exercise.js`
-  // the code for exercise_05 will run
+  /*
+
+    To run the code you write for each exercise, change the `exercise_01()` 
+    code below to match the EXACT name
+    of the exercise, as it is written in the line `function exercise_xx`.
+    
+     For Example:
+
+     If I want to run exercise_05 below, 
+     I would change the code below from "exercise_01()" to
+     "exercise_05()", save this file. 
+		 
+		 Then, when I run this file by running `node exercise.js`
+     in the VS Code terminal while inside this folder, your code 
+     for exercise_05 will run.
+
+  */
+
+  // Modify the line of code BELOW to run a different exercise
   exercise_01();
+  // Modify the line of code ABOVE to run a different exercise
 }
 
 export function exercise_01() {
   /* 
    
-    Exercise 1
-    
-    // 1. Function Declaration: 
-		
-		Create a function named `greet` that logs "Hello, World!" to the console.
+    Exercise 1: Function Declarations and Naming Conventions
+
+    Problem:
+
+  Write a function declaration named calculateArea that takes the radius of a 
+  circle as a parameter and returns the area of the circle. 
+  The formula for the area of a circle is PI * radius * radius
+  Use proper naming conventions for functions in JavaScript.
   
   */
   // CODE IN THE OPEN LINES BELOW
-  function greet() {
-    console.log("Hello, World!");
+  function calculateArea(radius) {
+    return Math.PI * radius * radius;
   }
-  greet();
-  // Enter your code in the empty lines ABOVE
+
+  // Usage:
+  console.log(calculateArea(5)); // Outputs: 78.53981633974483
+
+  /*
+
+    Explanation:
+
+    The function calculateArea is declared using the function keyword.
+    It follows camelCase naming convention.
+    It calculates the area using the formula πr².
+
+  */
+  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_02() {
@@ -33,400 +62,595 @@ export function exercise_02() {
    
     Exercise 2
     
-    Function Expression: 
-		
-		Define a function named `add` that takes two numbers and returns their sum.
+    Exercise 2: Function Expressions and Their Uses
+Problem:
+
+Convert the calculateArea function from Exercise 1 into a function expression and assign it to a variable called calculateArea.
   
   */
   // CODE IN THE OPEN LINES BELOW
-  const add = function (a, b) {
-    return a + b;
+  const calculateArea = function (radius) {
+    return Math.PI * radius * radius;
   };
-  console.log(add(5, 3)); // 8
-  // Enter your code in the empty lines ABOVE
+
+  // Usage:
+  console.log(calculateArea(5)); // Outputs: 78.53981633974483
+
+  /*  
+    Explanation:
+
+The function is assigned to a constant variable calculateArea.
+Function expressions can be used to assign functions to variables or pass them as arguments.
+  */
+  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_03() {
   /* 
-   
-    Exercise 3
     
-    Arrow Function: 
-		
-		Write an arrow function named `multiply` that takes two numbers and returns their product.
+    Exercise 3: Arrow Functions and How They Differ from Traditional Functions
+Problem:
+
+Rewrite the calculateArea function as an arrow function.
   
   */
   // CODE IN THE OPEN LINES BELOW
-  const multiply = (a, b) => a * b;
-  console.log(multiply(4, 2)); // 8
-  // Enter your code in the empty lines ABOVE
+  const calculateArea = (radius) => {
+    return Math.PI * radius * radius;
+  };
+
+  // Simplified version:
+  const calculateArea_simpler = (radius) => Math.PI * radius * radius;
+
+  // Usage:
+  console.log(calculateArea(5)); // Outputs: 78.53981633974483
+
+  /*
+
+  Explanation:
+
+Arrow functions provide a concise syntax.
+Parentheses can be omitted for single parameters.
+The return statement can be omitted for single-expression functions.
+
+  */
+  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_04() {
   /* 
    
-    Exercise 4
-    
-    Function with Parameters: 
-		
-		Create a function named `subtract` that takes two parameters and returns the difference.
+    Exercise 4: Using Functions to Validate and Transform Data
+Problem:
+
+Write a function isValidEmail that takes a string and returns true if it is a valid email address, and false otherwise. For simplicity, consider an email valid if it contains exactly one @ symbol and at least one . after the @.
   
   */
   // CODE IN THE OPEN LINES BELOW
-  function subtract(a, b) {
-    return a - b;
+  function isValidEmail(email) {
+    const atSymbolIndex = email.indexOf("@");
+    if (atSymbolIndex === -1) return false;
+
+    const dotIndex = email.indexOf(".", atSymbolIndex);
+    if (dotIndex === -1) return false;
+
+    return true;
   }
-  console.log(subtract(10, 5)); // 5
-  // Enter your code in the empty lines ABOVE
+
+  // Usage:
+  console.log(isValidEmail("test@example.com")); // Outputs: true
+  console.log(isValidEmail("invalid-email")); // Outputs: false
+
+  /*
+Explanation:
+
+The function checks for the presence of @ and . in appropriate positions.
+It ensures basic email structure without using complex regex.
+  */
+  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_05() {
   /* 
    
-    Exercise 5
-    
-    Function with Return Value: 
-		
-		Write a function named `divide` that returns the division of two numbers.
+   Exercise 5: Function Parameters, Including Default Values
+Problem:
+
+Write a function greet that takes a name and an optional greeting message. If no greeting is provided, it should default to 'Hello'. The function should return a greeting message.
   
   */
   // CODE IN THE OPEN LINES BELOW
-  function divide(a, b) {
-    return a / b;
+  function greet(name, greeting = "Hello") {
+    return `${greeting}, ${name}!`;
   }
-  console.log(divide(20, 4)); // 5
-  // Enter your code in the empty lines ABOVE
+
+  // Usage:
+  console.log(greet("Alice")); // Outputs: Hello, Alice!
+  console.log(greet("Bob", "Good morning")); // Outputs: Good morning, Bob!
+
+  /*
+Explanation:
+
+The greeting parameter has a default value of 'Hello'.
+Template literals are used to construct the message.
+  */
+  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_06() {
   /* 
    
-    Exercise 6
-    
-    Default Parameters: 
-		
-		Create a function named `greetUser` with a default parameter value "Guest".
+   Exercise 6: Understanding Local and Global Scope
+Problem:
+
+Consider the following code. What will be logged to the console and why?
   
   */
   // CODE IN THE OPEN LINES BELOW
-  function greetUser(name = "Guest") {
-    console.log(`Hello, ${name}!`);
+  let message = "Global";
+
+  function showMessage() {
+    let message = "Local";
+    console.log(message);
   }
-  greetUser(); // Hello, Guest!
-  greetUser("Alice"); // Hello, Alice!
-  // Enter your code in the empty lines ABOVE
+
+  showMessage();
+  console.log(message);
+
+  /*
+    Local
+    Global
+
+  */
+
+  /*
+Explanation:
+
+Inside showMessage, the local variable message shadows the global variable.
+console.log(message); inside the function logs 'Local'.
+Outside the function, it logs the global message which is 'Global'.
+    */
+  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_07() {
   /* 
    
-    Exercise 7
-    
-    Scope: 
-		
-		Demonstrate function scope by declaring a variable inside a function and trying to access it outside.
+Exercise 7: How Function Scope Works and Variable Limitations
+Problem:
+
+Write a function incrementCounter that declares a variable counter initialized to 0 inside it, increments counter by 1, and logs it to the console. Call incrementCounter twice. What will be logged each time and why can't we access counter outside the function?
   
   */
   // CODE IN THE OPEN LINES BELOW
-  function scopeTest() {
-    let localVar = "I'm local";
-    console.log(localVar); // Works
+  function incrementCounter() {
+    let counter = 0;
+    counter += 1;
+    console.log(counter);
   }
-  scopeTest();
-  console.log(localVar); // Error: localVar is not defined
-  // Enter your code in the empty lines ABOVE
+
+  incrementCounter(); // Outputs: 1
+  incrementCounter(); // Outputs: 1
+
+  console.log(counter); // ReferenceError: counter is not defined
+
+  /*
+Explanation:
+
+Each call to incrementCounter creates a new counter variable.
+counter is not accessible outside the function due to block scope.
+  */
+  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_08() {
   /* 
    
-    Exercise 8
-    
-    Global vs Local Scope: Define a global and a local variable with the same name.
+   Exercise 8: Functions That Return Other Functions
+Problem:
+
+Write a function makeMultiplier that takes a number multiplier and returns a new function that takes a number and returns it multiplied by multiplier.
 
   
   */
   // CODE IN THE OPEN LINES BELOW
-  let name = "Global Name";
-  function showName() {
-    let name = "Local Name";
-    console.log(name); // Local Name
+  function makeMultiplier(multiplier) {
+    return function (number) {
+      return number * multiplier;
+    };
   }
-  showName();
-  console.log(name); // Global Name
-  // Enter your code in the empty lines ABOVE
+
+  // Usage:
+  const double = makeMultiplier(2);
+  console.log(double(5)); // Outputs: 10
+
+  /*
+Explanation:
+
+makeMultiplier is a higher-order function.
+It returns a closure that remembers the multiplier value.
+  */
+  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_09() {
   /* 
    
-    Exercise 9
-    
-    Recursion: 
-		
-		Write a recursive function named `countdown` that logs numbers from a given number down to 1.
+Exercise 9: Using Higher-Order Functions to Create Dynamic Validation Functions
+Problem:
+
+Write a function createValidator that takes a regular expression regex and returns a function that validates a given string against regex. Use this to create a validator for email addresses.
   
   */
   // CODE IN THE OPEN LINES BELOW
-  function countdown(num) {
-    if (num <= 0) return;
-    console.log(num);
-    countdown(num - 1);
+  function createValidator(regex) {
+    return function (value) {
+      return regex.test(value);
+    };
   }
-  countdown(5);
-  // Enter your code in the empty lines ABOVE
+
+  const emailValidator = createValidator(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+
+  // Usage:
+  console.log(emailValidator("test@example.com")); // Outputs: true
+  console.log(emailValidator("invalid-email")); // Outputs: false
+
+  /*
+
+Explanation:
+
+createValidator returns a function tailored to the provided regex.
+The returned function can be reused for multiple validations.
+  */
+  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_10() {
   /* 
    
-    Exercise 10
-    
-     Higher-Order Function: 
-		 
-		 Create a function named `operate` that takes two numbers and a function.
+Exercise 10: Concepts and Use Cases for Recursive Functions
+Problem:
+
+Write a recursive function factorial that takes a non-negative integer n and returns its factorial.
+
+Solution:
   
   */
   // CODE IN THE OPEN LINES BELOW
-  function operate(a, b, func) {
-    return func(a, b);
+  function factorial(n) {
+    if (n === 0 || n === 1) return 1;
+    return n * factorial(n - 1);
   }
-  const add = function (a, b) {
-    return a + b;
-  };
-  console.log(operate(3, 4, add)); // 7
-  // Enter your code in the empty lines ABOVE
+
+  // Usage:
+  console.log(factorial(5)); // Outputs: 120
+  /*
+Explanation:
+
+The base case handles n equal to 0 or 1.
+The recursive case multiplies n by factorial(n - 1).
+
+  */
+  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_11() {
   /* 
    
-    Exercise 11
-    
-    Function Returning Function: 
-		
-		Write a function named `createMultiplier`.
+   Exercise 11: Avoiding Infinite Loops with Proper Base Cases
+Problem:
+
+Modify the factorial function from Exercise 10 to include error handling for negative inputs by throwing an error.
+
+
   
   */
   // CODE IN THE OPEN LINES BELOW
-  function createMultiplier(multiplier) {
-    return function (num) {
-      return num * multiplier;
-    };
+  function factorial(n) {
+    if (n < 0) throw new Error("Negative numbers are not allowed.");
+    if (n === 0 || n === 1) return 1;
+    return n * factorial(n - 1);
   }
-  const double = createMultiplier(2);
-  console.log(double(5)); // 10
-  // Enter your code in the empty lines ABOVE
+
+  // Usage:
+  try {
+    console.log(factorial(-1)); // Throws error
+  } catch (e) {
+    console.error(e.message); // Outputs: Negative numbers are not allowed.
+  }
+  /*
+
+Explanation:
+
+The function now checks for negative inputs and throws an error.
+This prevents infinite recursion and ensures correct usage.
+  */
+  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_12() {
   /* 
    
-    Exercise 12
-    
-    Validator Function: 
-		
-		Create a function named `isValidString`.
+   Exercise 12: Using forEach to Iterate Over Arrays
+Problem:
+
+Given an array of fruits ['apple', 'banana', 'cherry'], use forEach to print each fruit to the console.
   
   */
   // CODE IN THE OPEN LINES BELOW
-  function isValidString(str) {
-    return typeof str === "string" && str.trim() !== "";
-  }
-  console.log(isValidString("Hello")); // true
-  // Enter your code in the empty lines ABOVE
+  const fruits = ["apple", "banana", "cherry"];
+
+  fruits.forEach(function (fruit) {
+    console.log(fruit);
+  });
+
+  // Using arrow function:
+  fruits.forEach((fruit) => console.log(fruit));
+
+  /*
+Explanation:
+
+forEach executes the provided function once for each array element.
+It's a cleaner alternative to traditional loops for iteration.
+  */
+
+  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_13() {
   /* 
    
-    Exercise 13
-    
-    Boolean Transformer: 
-		
-		Write a function named `isTruthy`.
+Exercise 13: Replacing Traditional Loops with Functional Approaches
+Problem:
+
+Replace the following for loop with a functional approach using reduce to calculate the sum of an array of numbers.
   
   */
   // CODE IN THE OPEN LINES BELOW
-  function isTruthy(input) {
-    return Boolean(input);
+  const numbers = [1, 2, 3, 4, 5];
+  let sum = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
   }
-  console.log(isTruthy("Yes")); // true
-  // Enter your code in the empty lines ABOVE
+
+  console.log(sum); // Outputs: 15
+
+  // solution
+  const sum_with_reducer = numbers.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    0
+  );
+
+  console.log(sum); // Outputs: 15
+
+  /*
+Explanation:
+
+reduce processes each element and accumulates the result.
+It provides a functional and concise way to compute sums.
+*/
+
+  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_14() {
   /* 
    
-    Exercise 14
-    
-    Array Iteration with forEach: 
-		
-		Use `forEach` to iterate over an array.
+Exercise 14: Filtering Arrays with filter and Finding Elements with find
+Problem:
+
+Given an array of numbers [10, 15, 20, 25, 30], use filter to create a new array containing only the even numbers.
   
   */
   // CODE IN THE OPEN LINES BELOW
-  const arr = [1, 2, 3, 4, 5];
-  arr.forEach((num) => console.log(num));
-  // Enter your code in the empty lines ABOVE
+  const numbers = [10, 15, 20, 25, 30];
+
+  const evenNumbers = numbers.filter((number) => number % 2 === 0);
+
+  console.log(evenNumbers); // Outputs: [10, 20, 30]
+
+  /*
+Explanation:
+
+filter creates a new array with elements that pass the test.
+The test checks if a number is divisible by 2.
+*/
+  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_15() {
   /* 
    
-    Exercise 15
-    
-    Array Filtering: 
-		
-		Use `filter` to create a new array.
+Exercise 15: How JavaScript Handles Primitives and Objects Differently in Memory
+Problem:
+
+Explain why modifying an object passed to a function affects the original object, but modifying a primitive value does not. Provide code examples to illustrate this behavior.
   
   */
   // CODE IN THE OPEN LINES BELOW
-  const filteredArr = arr.filter((num) => num > 2);
-  console.log(filteredArr); // [3, 4, 5]
-  // Enter your code in the empty lines ABOVE
+  function modifyPrimitive(primitive) {
+    primitive += 1;
+    console.log("Inside function:", primitive);
+  }
+
+  function modifyObject(obj) {
+    obj.value += 1;
+    console.log("Inside function:", obj.value);
+  }
+
+  let num = 5;
+  modifyPrimitive(num);
+  console.log("Outside function:", num); // Outputs: 5
+
+  let obj = { value: 5 };
+  modifyObject(obj);
+  console.log("Outside function:", obj.value); // Outputs: 6
+  /*
+Explanation:
+
+Primitives are passed by value; a copy is made.
+Objects are passed by reference; changes affect the original object.
+  */
+  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_16() {
   /* 
    
-    Exercise 16
-    
-    Finding an Item: 
-		
-		Use `find` to locate a specific item in an array.
+Exercise 16: Reference Types and How They Are Passed Around
+Problem:
+
+Write code to demonstrate that objects are passed by reference by creating a function that adds a new property to an object passed as an argument.
   
   */
   // CODE IN THE OPEN LINES BELOW
-  const people = [{ name: "John" }, { name: "Jane" }];
-  const person = people.find((p) => p.name === "Jane");
-  console.log(person); // { name: "Jane" }
-  // Enter your code in the empty lines ABOVE
+  function addProperty(obj) {
+    obj.newProperty = "I am new!";
+  }
+
+  const myObj = { existingProperty: "I exist" };
+
+  addProperty(myObj);
+
+  console.log(myObj);
+  // Outputs: { existingProperty: 'I exist', newProperty: 'I am new!' }
+  /*
+Explanation:
+
+The function addProperty modifies the original object.
+This demonstrates that objects are mutable and passed by reference.
+  */
+  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_17() {
+  const users = [
+    { id: 1, name: "Alice" },
+    { id: 2, name: "Bob" },
+    { id: 3, name: "Charlie" },
+  ];
+
   /* 
    
-    Exercise 17
-    
-    Using includes: 
-		
-		Copy the array from exercise_14 and paste it below
-		Check if an array includes a specific value.
+    Exercise 17: Working with Arrays Using forEach, filter, and find
+Problem:
+
+Given an array of user objects:
+
+Use find to locate the user with the name 'Bob'.
   
   */
   // CODE IN THE OPEN LINES BELOW
-  const arr = [1, 2, 3, 4, 5];
-  console.log(arr.includes(3)); // true
-  // Enter your code in the empty lines ABOVE
+  const user = users.find((user) => user.name === "Bob");
+
+  console.log(user);
+  // Outputs: { id: 2, name: 'Bob' }
+
+  /*
+
+Explanation:
+
+find returns the first element that satisfies the condition.
+It stops iterating once the element is found.
+*/
+  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_18() {
+  const person = {
+    name: "John Doe",
+    age: 30,
+    occupation: "Engineer",
+  };
+
   /* 
    
-    Exercise 18
-    
-    Switch Case in Function: 
-		
-		Write a function with a `switch` statement.
+Exercise 18: Using Object.entries to Iterate Over Object Properties
+Problem:
+
+Given the following object:
+
+Use Object.entries to iterate over the object's properties and print each key and value.
   
   */
   // CODE IN THE OPEN LINES BELOW
-  function getGreeting(hour) {
-    switch (true) {
-      case hour < 12:
-        return "Good Morning";
-      case hour < 18:
-        return "Good Afternoon";
-      default:
-        return "Good Evening";
-    }
-  }
-  console.log(getGreeting(15)); // Good Afternoon
-  // Enter your code in the empty lines ABOVE
+  Object.entries(person).forEach(([key, value]) => {
+    console.log(`${key}: ${value}`);
+  });
+
+  // Outputs:
+  // name: John Doe
+  // age: 30
+  // occupation: Engineer
+  /*
+Explanation:
+
+Object.entries converts the object into an array of key-value pairs.
+Destructuring is used in the callback function for clarity.
+  */
+  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_19() {
   /* 
    
-    Exercise 19
-    
-    Nested Functions: 
-		
-		Create a function named `outerFunction`.
+    Exercise 19: Using Functions to Transform Data
+Problem:
+
+Write a function capitalizeStrings that takes an array of strings and returns a new array with each string capitalized (first letter uppercase, rest lowercase).
   
   */
   // CODE IN THE OPEN LINES BELOW
-  function outerFunction() {
-    function innerFunction() {
-      console.log("I'm the inner function");
-    }
-    innerFunction();
+  function capitalizeStrings(strings) {
+    return strings.map(
+      (str) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
+    );
   }
-  outerFunction();
-  // Enter your code in the empty lines ABOVE
+
+  // Usage:
+  const lowerCaseStrings = ["apple", "banana", "cherry"];
+
+  const capitalizedStrings = capitalizeStrings(lowerCaseStrings);
+
+  console.log(capitalizedStrings);
+  // Outputs: ['Apple', 'Banana', 'Cherry']
+  /*
+  Explanation:
+
+map is used to create a new array with transformed elements.
+String methods charAt, toUpperCase, and toLowerCase are used for capitalization.
+  */
+  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_20() {
   /* 
    
-    Exercise 20
-    
-    Anonymous Function: 
-		
-		Use an anonymous function in an example.
+    Exercise 20: Using Default Parameters
+Problem:
+
+Write a function power that calculates the power of a number. The function should take two parameters: base and exponent, with exponent defaulting to 2 if not provided.
   
   */
   // CODE IN THE OPEN LINES BELOW
-  setTimeout(function () {
-    console.log("This is an anonymous function");
-  }, 1000);
-  // Enter your code in the empty lines ABOVE
+  function power(base, exponent = 2) {
+    return Math.pow(base, exponent);
+  }
+
+  // Usage:
+  console.log(power(5)); // Outputs: 25 (5 squared)
+  console.log(power(2, 3)); // Outputs: 8  (2 cubed)
+  /*
+Explanation:
+
+The exponent parameter defaults to 2.
+Math.pow is used to calculate the power.
+  */
+  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_21() {
-  /* 
-   
-    Exercise 21
-    
-    Arrow Function and this: 
-		
-		Show how `this` behaves differently.
-  
-  */
-  // CODE IN THE OPEN LINES BELOW
-  const obj = {
-    name: "John",
-    regularFunction: function () {
-      console.log(this.name); // John
-    },
-    arrowFunction: () => {
-      console.log(this.name); // undefined or global `this`
-    },
-  };
-  obj.regularFunction();
-  obj.arrowFunction();
-  // Enter your code in the empty lines ABOVE
-}
-
-export function exercise_22() {
-  /* 
-   
-    Exercise 22
-    
-    Function Composition: 
-		
-		Combine two functions.
-  
-  */
-  // CODE IN THE OPEN LINES BELOW
-  const square = (x) => x * x;
-  const doubleThenSquare = (x) => square(double(x));
-  console.log(doubleThenSquare(3)); // 36
-  // Enter your code in the empty lines ABOVE
-}
-
-export function exercise_23() {
   /* 
    
     Exercise 23
@@ -444,10 +668,10 @@ export function exercise_23() {
     console.log("After callback");
   }
   executeCallback(() => console.log("This is the callback"));
-  // Enter your code in the empty lines ABOVE
+  // CODE IN THE OPEN LINES ABOVE
 }
 
-export function exercise_24() {
+export function exercise_22() {
   /* 
    
     Exercise 24
@@ -461,10 +685,10 @@ export function exercise_24() {
   (function () {
     console.log("This is an IIFE");
   })();
-  // Enter your code in the empty lines ABOVE
+  // CODE IN THE OPEN LINES ABOVE
 }
 
-export function exercise_25() {
+export function exercise_23() {
   /* 
    
     Exercise 25
@@ -490,5 +714,5 @@ export function exercise_25() {
   const squareMemo = memoize((x) => x * x);
   console.log(squareMemo(4)); // 16
   console.log(squareMemo(4)); // Cached 16
-  // Enter your code in the empty lines ABOVE
+  // CODE IN THE OPEN LINES ABOVE
 }
