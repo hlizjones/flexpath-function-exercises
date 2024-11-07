@@ -20,7 +20,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   */
 
   // Modify the line of code BELOW to run a different exercise
-  exercise_16();
+  exercise_21();
   // Modify the line of code ABOVE to run a different exercise
 }
 
@@ -302,7 +302,7 @@ export function exercise_08() {
 export function exercise_09() {
   /* 
    
-    Exercise 10: Concepts and Use Cases for Recursive Functions
+    Exercise 9: Concepts and Use Cases for Recursive Functions
     Problem:
 
     Write a recursive function factorial that takes a non-negative integer n and returns its factorial.
@@ -341,11 +341,11 @@ export function exercise_09() {
   // CODE IN THE OPEN LINES ABOVE
 }
 
-export function exercise_11() {
+export function exercise_10() {
   const fruits = ["apple", "banana", "cherry"];
   /* 
    
-   Exercise 12: Using forEach to Iterate Over Arrays
+   Exercise 10: Using forEach to Iterate Over Arrays
     Problem:
 
     Given an array of fruits ['apple', 'banana', 'cherry'], use forEach to print each fruit to the console.
@@ -370,10 +370,10 @@ export function exercise_11() {
   // CODE IN THE OPEN LINES ABOVE
 }
 
-export function exercise_12() {
+export function exercise_11() {
   /* 
    
-Exercise 13: Replacing Traditional Loops with Functional Approaches
+Exercise 11: Replacing Traditional Loops with Functional Approaches
 Problem:
 
 Replace the following for loop with a functional approach using reduce to calculate the sum of an array of numbers.
@@ -406,11 +406,11 @@ It provides a functional and concise way to compute sums.
   // REPLACE the code above
 }
 
-export function exercise_13() {
+export function exercise_12() {
   const numbers = [10, 15, 20, 25, 30];
   /* 
    
-Exercise 14: Filtering Arrays with filter and Finding Elements with find
+Exercise 12: Filtering Arrays with filter and Finding Elements with find
 Problem:
 
 Given the array of numbers above, use filter to create a new array containing only the even numbers.
@@ -431,10 +431,10 @@ The test checks if a number is divisible by 2.
   // CODE IN THE OPEN LINES ABOVE
 }
 
-export function exercise_14() {
+export function exercise_13() {
   /* 
    
-Exercise 15: How JavaScript Handles Primitives and Objects Differently in Memory
+Exercise 13: How JavaScript Handles Primitives and Objects Differently in Memory
 Problem:
 
 Explain why modifying an object passed to a function affects 
@@ -470,10 +470,10 @@ Provide code examples to illustrate this behavior.
   // CODE IN THE OPEN LINES ABOVE
 }
 
-export function exercise_15() {
+export function exercise_14() {
   /* 
    
-Exercise 16: Reference Types and How They Are Passed Around
+Exercise 14: Reference Types and How They Are Passed Around
 Problem:
 
 Write code to demonstrate that objects are passed by 
@@ -519,7 +519,7 @@ Explanation:
   // CODE IN THE OPEN LINES ABOVE
 }
 
-export function exercise_16() {
+export function exercise_15() {
   const users = [
     { id: 1, name: "Alice" },
     { id: 2, name: "Bob" },
@@ -528,7 +528,7 @@ export function exercise_16() {
 
   /* 
    
-    Exercise 17: Working with Arrays Using forEach, filter, and find
+    Exercise 15: Working with Arrays Using forEach, filter, and find
 Problem:
 
 Given the array of user objects above, use find to 
@@ -553,7 +553,7 @@ It stops iterating once the element is found.
   // CODE IN THE OPEN LINES ABOVE
 }
 
-export function exercise_17() {
+export function exercise_16() {
   const person = {
     name: "John Doe",
     age: 30,
@@ -562,12 +562,11 @@ export function exercise_17() {
 
   /* 
    
-Exercise 18: Using Object.entries to Iterate Over Object Properties
+Exercise 16: Using Object.entries to Iterate Over Object Properties
 Problem:
 
-Given the following object:
-
-Use Object.entries to iterate over the object's properties and print each key and value.
+Given the person object above, use Object.entries to iterate 
+over the object's properties and print each key and value.
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -582,20 +581,23 @@ Use Object.entries to iterate over the object's properties and print each key an
   /*
 Explanation:
 
-Object.entries converts the object into an array of key-value pairs.
-Destructuring is used in the callback function for clarity.
+    Object.entries converts the object into an array of key-value pairs.
+    Destructuring is used in the callback function for clarity.
   */
   // CODE IN THE OPEN LINES ABOVE
 }
 
-export function exercise_18() {
+export function exercise_17() {
   /* 
    
-    Exercise 19: Using Functions to Transform Data
-Problem:
+    Exercise 17: Using Functions to Transform Data
 
-Write a function capitalizeStrings that takes an array of strings and returns a new array with each string capitalized (first letter uppercase, rest lowercase).
-  
+    Problem:
+
+    Write a function capitalizeStrings that takes an array of strings and 
+    returns a new array with each 
+    string capitalized (first letter uppercase, rest lowercase).
+      
   */
   // CODE IN THE OPEN LINES BELOW
   function capitalizeStrings(strings) {
@@ -612,21 +614,26 @@ Write a function capitalizeStrings that takes an array of strings and returns a 
   console.log(capitalizedStrings);
   // Outputs: ['Apple', 'Banana', 'Cherry']
   /*
-  Explanation:
+      Explanation:
 
-map is used to create a new array with transformed elements.
-String methods charAt, toUpperCase, and toLowerCase are used for capitalization.
+    map is used to create a new array with transformed elements.
+    String methods charAt, toUpperCase, and toLowerCase are used for capitalization.
   */
   // CODE IN THE OPEN LINES ABOVE
 }
 
-export function exercise_19() {
+export function exercise_18() {
   /* 
    
-    Exercise 20: Using Default Parameters
+    Exercise 18: Using Default Parameters
 Problem:
 
-Write a function power that calculates the power of a number. The function should take two parameters: base and exponent, with exponent defaulting to 2 if not provided.
+Write a function 'power' that calculates the power of a number. 
+The function should take two parameters: base and exponent, 
+with exponent defaulting to 2 if not provided.
+
+Use Math.pow to find the power of a number
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/pow
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -646,69 +653,27 @@ Math.pow is used to calculate the power.
   // CODE IN THE OPEN LINES ABOVE
 }
 
-export function exercise_20() {
+export function exercise_19() {
   /* 
    
-    Exercise 23
-    
-		Callback Function: 
-		
-		Write a function that takes a callback.
-    
-  
-  */
-  // CODE IN THE OPEN LINES BELOW
-  function executeCallback(callback) {
-    console.log("Before callback");
-    callback();
-    console.log("After callback");
-  }
-  executeCallback(() => console.log("This is the callback"));
-  // CODE IN THE OPEN LINES ABOVE
-}
-
-export function exercise_21() {
-  /* 
-   
-    Exercise 24
+    Exercise 19
     
     Immediate Function: 
-		
-		Use an IIFE.
-  
-  */
-  // CODE IN THE OPEN LINES BELOW
-  (function () {
-    console.log("This is an IIFE");
-  })();
-  // CODE IN THE OPEN LINES ABOVE
-}
 
-export function exercise_22() {
-  /* 
-   
-    Exercise 25
-    
-    Memoization: 
+    Write an IIFE(Immediately Invoked Function Expression)
 		
-		Create a simple memoization function.
+		https://developer.mozilla.org/en-US/docs/Glossary/IIFE
   
   */
   // CODE IN THE OPEN LINES BELOW
-  function memoize(fn) {
-    const cache = {};
-    return function (arg) {
-      if (cache[arg]) {
-        return cache[arg];
-      } else {
-        const result = fn(arg);
-        cache[arg] = result;
-        return result;
-      }
-    };
-  }
-  const squareMemo = memoize((x) => x * x);
-  console.log(squareMemo(4)); // 16
-  console.log(squareMemo(4)); // Cached 16
+  (() => {
+    process.env.APP_TEAM_MEMBERS_TO_SHOW_USERS = ["Bob", "Hank", "Jerry"];
+    process.env.APP_LANGUAGE = "en-US";
+    process.env.APP_CURRENCY = "USD";
+  })();
+
+  console.log(process.env.APP_TEAM_MEMBERS_TO_SHOW_USERS);
+  console.log(process.env.APP_LANGUAGE);
+  console.log(process.env.APP_CURRENCY);
   // CODE IN THE OPEN LINES ABOVE
 }
