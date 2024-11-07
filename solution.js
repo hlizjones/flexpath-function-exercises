@@ -325,10 +325,13 @@ export function exercise_09() {
   /* 
    
     Exercise 9: Concepts and Use Cases for Recursive Functions
+
     Problem:
 
-    Write a recursive function factorial that takes a non-negative integer n and returns its factorial.
-    If n is a negative number, log "Bad number input" to the console, and 
+    Write a recursive function 'factorial' that takes a 
+    non-negative integer 'n' and returns its factorial.
+
+    If 'n' is a negative number, log "Bad number input" to the console, and 
     `return` from the function. 
     This will prevent an infinite loop from occuring.
 
@@ -337,7 +340,6 @@ export function exercise_09() {
 
     Info on what a factorial is: https://www.cuemath.com/numbers/factorial/
 
-  
   */
   // CODE IN THE OPEN LINES BELOW
   function factorial(n) {
@@ -353,14 +355,16 @@ export function exercise_09() {
   console.log(factorial(5)); // Outputs: 120
 
   console.log(factorial(-12));
+  // CODE IN THE OPEN LINES ABOVE
+
   /*
-    Explanation:
+
+    Answer Explanation:
 
     The base case handles n equal to 0 or 1.
     The recursive case multiplies n by factorial(n - 1).
 
   */
-  // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_10() {
@@ -370,7 +374,8 @@ export function exercise_10() {
    Exercise 10: Using forEach to Iterate Over Arrays
     Problem:
 
-    Given an array of fruits ['apple', 'banana', 'cherry'], use forEach to print each fruit to the console.
+    Given the array `fruits` defined above, use forEach to 
+    print each fruit to the console.
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -382,23 +387,27 @@ export function exercise_10() {
   // Using arrow function:
   fruits.forEach((fruit) => console.log(fruit));
 
+  // CODE IN THE OPEN LINES ABOVE
+
   /*
-    Explanation:
+
+    Answer Explanation:
 
     forEach executes the provided function once for each array element.
     It's a cleaner alternative to traditional loops for iteration.
-  */
 
-  // CODE IN THE OPEN LINES ABOVE
+  */
 }
 
 export function exercise_11() {
   /* 
    
 Exercise 11: Replacing Traditional Loops with Functional Approaches
+
 Problem:
 
-Replace the following for loop with a functional approach using reduce to calculate the sum of an array of numbers.
+Replace the following for loop with a functional approach using 
+the reduce() method to calculate the sum of an array of numbers.
   */
   // REPLACE the code below
   const numbers = [1, 2, 3, 4, 5];
@@ -418,24 +427,28 @@ Replace the following for loop with a functional approach using reduce to calcul
 
   console.log(sum_with_reducer); // Outputs: 15
 
-  /*
-Explanation:
-
-reduce processes each element and accumulates the result.
-It provides a functional and concise way to compute sums.
-*/
-
   // REPLACE the code above
+  /*
+
+    Answer Explanation:
+
+    `reduce` processes each element and accumulates the result.
+    It provides a functional and concise way to compute sums.
+
+  */
 }
 
 export function exercise_12() {
   const numbers = [10, 15, 20, 25, 30];
   /* 
    
-Exercise 12: Filtering Arrays with filter and Finding Elements with find
-Problem:
+    Exercise 12: Filtering Arrays with `filter`
+    Problem:
 
-Given the array of numbers above, use filter to create a new array containing only the even numbers.
+    Given the array of numbers above, use the filter() method to 
+    create a new array containing only the even numbers.
+
+    Log this new array to the console
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -443,26 +456,32 @@ Given the array of numbers above, use filter to create a new array containing on
   const evenNumbers = numbers.filter((number) => number % 2 === 0);
 
   console.log(evenNumbers); // Outputs: [10, 20, 30]
+  // CODE IN THE OPEN LINES ABOVE
 
   /*
-Explanation:
 
-filter creates a new array with elements that pass the test.
-The test checks if a number is divisible by 2.
-*/
-  // CODE IN THE OPEN LINES ABOVE
+      Answer Explanation:
+
+      'filter' creates a new array with elements that evaluate to 'true' when 
+      passed through the provided condition (number % 2 === 0).
+      The test checks if a number is divisible by 2.
+
+  */
 }
 
 export function exercise_13() {
   /* 
    
-Exercise 13: How JavaScript Handles Primitives and Objects Differently in Memory
-Problem:
+    Exercise 13: How JavaScript Handles Primitives and 
+                 Objects Differently in Memory
 
-Explain why modifying an object passed to a function affects 
-the original object, but modifying a primitive value does not. 
 
-Provide code examples to illustrate this behavior.
+    Problem:
+
+    Explain why modifying an object passed to a function affects 
+    the original object, but modifying a primitive value does not. 
+
+    Provide code examples to illustrate this behavior.
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -483,13 +502,18 @@ Provide code examples to illustrate this behavior.
   let obj = { value: 5 };
   modifyObject(obj);
   console.log("Outside function:", obj.value); // Outputs: 6
-  /*
-    Explanation:
-
-    Primitives are passed by value; a copy is made.
-    Objects are passed by reference; changes affect the original object.
-  */
   // CODE IN THE OPEN LINES ABOVE
+
+  /*
+    Answer Explanation:
+
+    Primitives are passed by value; 
+      A copy of the value is made when it is passed to the function.
+    Objects are passed by reference; A copy is NOT made when passed. 
+      Instead a reference to that object's place in memory is made.
+      Therefore, any changes made to the passed object in the function 
+      affect the original object.
+  */
 }
 
 export function exercise_14() {
