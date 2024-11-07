@@ -20,7 +20,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   */
 
   // Modify the line of code BELOW to run a different exercise
-  exercise_08();
+  exercise_16();
   // Modify the line of code ABOVE to run a different exercise
 }
 
@@ -302,109 +302,56 @@ export function exercise_08() {
 export function exercise_09() {
   /* 
    
-Exercise 9: Using Higher-Order Functions to Create Dynamic Validation Functions
-Problem:
+    Exercise 10: Concepts and Use Cases for Recursive Functions
+    Problem:
 
-Write a function createValidator that takes a regular expression regex and returns a function that validates a given string against regex. Use this to create a validator for email addresses.
-  
-  */
-  // CODE IN THE OPEN LINES BELOW
-  function createValidator(regex) {
-    return function (value) {
-      return regex.test(value);
-    };
-  }
+    Write a recursive function factorial that takes a non-negative integer n and returns its factorial.
+    If n is a negative number, log "Bad number input" to the console, and 
+    `return` from the function. 
+    This will prevent an infinite loop from occuring.
 
-  const emailValidator = createValidator(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+    In the future, we can use error handling techniques to handle these use cases
+    in a cleaner manner.
 
-  // Usage:
-  console.log(emailValidator("test@example.com")); // Outputs: true
-  console.log(emailValidator("invalid-email")); // Outputs: false
+    Info on what a factorial is: https://www.cuemath.com/numbers/factorial/
 
-  /*
-
-Explanation:
-
-createValidator returns a function tailored to the provided regex.
-The returned function can be reused for multiple validations.
-  */
-  // CODE IN THE OPEN LINES ABOVE
-}
-
-export function exercise_10() {
-  /* 
-   
-Exercise 10: Concepts and Use Cases for Recursive Functions
-Problem:
-
-Write a recursive function factorial that takes a non-negative integer n and returns its factorial.
-
-Solution:
   
   */
   // CODE IN THE OPEN LINES BELOW
   function factorial(n) {
+    if (n < 0) {
+      console.log("Bad number input");
+      return;
+    }
     if (n === 0 || n === 1) return 1;
     return n * factorial(n - 1);
   }
 
   // Usage:
   console.log(factorial(5)); // Outputs: 120
-  /*
-Explanation:
 
-The base case handles n equal to 0 or 1.
-The recursive case multiplies n by factorial(n - 1).
+  console.log(factorial(-12));
+  /*
+    Explanation:
+
+    The base case handles n equal to 0 or 1.
+    The recursive case multiplies n by factorial(n - 1).
 
   */
   // CODE IN THE OPEN LINES ABOVE
 }
 
 export function exercise_11() {
-  /* 
-   
-   Exercise 11: Avoiding Infinite Loops with Proper Base Cases
-Problem:
-
-Modify the factorial function from Exercise 10 to include error handling for negative inputs by throwing an error.
-
-
-  
-  */
-  // CODE IN THE OPEN LINES BELOW
-  function factorial(n) {
-    if (n < 0) throw new Error("Negative numbers are not allowed.");
-    if (n === 0 || n === 1) return 1;
-    return n * factorial(n - 1);
-  }
-
-  // Usage:
-  try {
-    console.log(factorial(-1)); // Throws error
-  } catch (e) {
-    console.error(e.message); // Outputs: Negative numbers are not allowed.
-  }
-  /*
-
-Explanation:
-
-The function now checks for negative inputs and throws an error.
-This prevents infinite recursion and ensures correct usage.
-  */
-  // CODE IN THE OPEN LINES ABOVE
-}
-
-export function exercise_12() {
+  const fruits = ["apple", "banana", "cherry"];
   /* 
    
    Exercise 12: Using forEach to Iterate Over Arrays
-Problem:
+    Problem:
 
-Given an array of fruits ['apple', 'banana', 'cherry'], use forEach to print each fruit to the console.
+    Given an array of fruits ['apple', 'banana', 'cherry'], use forEach to print each fruit to the console.
   
   */
   // CODE IN THE OPEN LINES BELOW
-  const fruits = ["apple", "banana", "cherry"];
 
   fruits.forEach(function (fruit) {
     console.log(fruit);
@@ -414,25 +361,24 @@ Given an array of fruits ['apple', 'banana', 'cherry'], use forEach to print eac
   fruits.forEach((fruit) => console.log(fruit));
 
   /*
-Explanation:
+    Explanation:
 
-forEach executes the provided function once for each array element.
-It's a cleaner alternative to traditional loops for iteration.
+    forEach executes the provided function once for each array element.
+    It's a cleaner alternative to traditional loops for iteration.
   */
 
   // CODE IN THE OPEN LINES ABOVE
 }
 
-export function exercise_13() {
+export function exercise_12() {
   /* 
    
 Exercise 13: Replacing Traditional Loops with Functional Approaches
 Problem:
 
 Replace the following for loop with a functional approach using reduce to calculate the sum of an array of numbers.
-  
   */
-  // CODE IN THE OPEN LINES BELOW
+  // REPLACE the code below
   const numbers = [1, 2, 3, 4, 5];
   let sum = 0;
 
@@ -448,7 +394,7 @@ Replace the following for loop with a functional approach using reduce to calcul
     0
   );
 
-  console.log(sum); // Outputs: 15
+  console.log(sum_with_reducer); // Outputs: 15
 
   /*
 Explanation:
@@ -457,20 +403,20 @@ reduce processes each element and accumulates the result.
 It provides a functional and concise way to compute sums.
 */
 
-  // CODE IN THE OPEN LINES ABOVE
+  // REPLACE the code above
 }
 
-export function exercise_14() {
+export function exercise_13() {
+  const numbers = [10, 15, 20, 25, 30];
   /* 
    
 Exercise 14: Filtering Arrays with filter and Finding Elements with find
 Problem:
 
-Given an array of numbers [10, 15, 20, 25, 30], use filter to create a new array containing only the even numbers.
+Given the array of numbers above, use filter to create a new array containing only the even numbers.
   
   */
   // CODE IN THE OPEN LINES BELOW
-  const numbers = [10, 15, 20, 25, 30];
 
   const evenNumbers = numbers.filter((number) => number % 2 === 0);
 
@@ -485,13 +431,16 @@ The test checks if a number is divisible by 2.
   // CODE IN THE OPEN LINES ABOVE
 }
 
-export function exercise_15() {
+export function exercise_14() {
   /* 
    
 Exercise 15: How JavaScript Handles Primitives and Objects Differently in Memory
 Problem:
 
-Explain why modifying an object passed to a function affects the original object, but modifying a primitive value does not. Provide code examples to illustrate this behavior.
+Explain why modifying an object passed to a function affects 
+the original object, but modifying a primitive value does not. 
+
+Provide code examples to illustrate this behavior.
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -513,21 +462,22 @@ Explain why modifying an object passed to a function affects the original object
   modifyObject(obj);
   console.log("Outside function:", obj.value); // Outputs: 6
   /*
-Explanation:
+    Explanation:
 
-Primitives are passed by value; a copy is made.
-Objects are passed by reference; changes affect the original object.
+    Primitives are passed by value; a copy is made.
+    Objects are passed by reference; changes affect the original object.
   */
   // CODE IN THE OPEN LINES ABOVE
 }
 
-export function exercise_16() {
+export function exercise_15() {
   /* 
    
 Exercise 16: Reference Types and How They Are Passed Around
 Problem:
 
-Write code to demonstrate that objects are passed by reference by creating a function that adds a new property to an object passed as an argument.
+Write code to demonstrate that objects are passed by 
+reference by creating a function that adds a new property to an object passed as an argument.
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -537,20 +487,39 @@ Write code to demonstrate that objects are passed by reference by creating a fun
 
   const myObj = { existingProperty: "I exist" };
 
+  console.log(myObj);
+
   addProperty(myObj);
 
   console.log(myObj);
+
+  // Real world example
+
+  function flagRentAsLate(obj) {
+    obj["late"] = true;
+  }
+
+  const rentObj = {
+    monthlyPayment: 1200,
+    monthDue: "November",
+    dayDue: 1,
+    paid: false,
+  };
+  flagRentAsLate(rentObj);
+
+  console.log(rentObj);
+
   // Outputs: { existingProperty: 'I exist', newProperty: 'I am new!' }
   /*
 Explanation:
 
-The function addProperty modifies the original object.
-This demonstrates that objects are mutable and passed by reference.
+    The function addProperty modifies the original object.
+    This demonstrates that objects are mutable and passed by reference.
   */
   // CODE IN THE OPEN LINES ABOVE
 }
 
-export function exercise_17() {
+export function exercise_16() {
   const users = [
     { id: 1, name: "Alice" },
     { id: 2, name: "Bob" },
@@ -562,9 +531,10 @@ export function exercise_17() {
     Exercise 17: Working with Arrays Using forEach, filter, and find
 Problem:
 
-Given an array of user objects:
+Given the array of user objects above, use find to 
+locate the user with the name 'Bob'.
 
-Use find to locate the user with the name 'Bob'.
+Print this user object to the console
   
   */
   // CODE IN THE OPEN LINES BELOW
@@ -583,7 +553,7 @@ It stops iterating once the element is found.
   // CODE IN THE OPEN LINES ABOVE
 }
 
-export function exercise_18() {
+export function exercise_17() {
   const person = {
     name: "John Doe",
     age: 30,
@@ -618,7 +588,7 @@ Destructuring is used in the callback function for clarity.
   // CODE IN THE OPEN LINES ABOVE
 }
 
-export function exercise_19() {
+export function exercise_18() {
   /* 
    
     Exercise 19: Using Functions to Transform Data
@@ -650,7 +620,7 @@ String methods charAt, toUpperCase, and toLowerCase are used for capitalization.
   // CODE IN THE OPEN LINES ABOVE
 }
 
-export function exercise_20() {
+export function exercise_19() {
   /* 
    
     Exercise 20: Using Default Parameters
@@ -676,7 +646,7 @@ Math.pow is used to calculate the power.
   // CODE IN THE OPEN LINES ABOVE
 }
 
-export function exercise_21() {
+export function exercise_20() {
   /* 
    
     Exercise 23
@@ -697,7 +667,7 @@ export function exercise_21() {
   // CODE IN THE OPEN LINES ABOVE
 }
 
-export function exercise_22() {
+export function exercise_21() {
   /* 
    
     Exercise 24
@@ -714,7 +684,7 @@ export function exercise_22() {
   // CODE IN THE OPEN LINES ABOVE
 }
 
-export function exercise_23() {
+export function exercise_22() {
   /* 
    
     Exercise 25
