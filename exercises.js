@@ -20,7 +20,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   */
 
   // Modify the line of code BELOW to run a different exercise
-  exercise_01();
+  exercise_10();
   // Modify the line of code ABOVE to run a different exercise
 }
 
@@ -41,7 +41,14 @@ function exercise_01() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  function calculateArea (radius) {
+    let area = Math.PI * Math.pow(radius, 2);
+    return area;
+  }
+
+  console.log(calculateArea(2));
+
+  
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -61,7 +68,11 @@ function exercise_02() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  let calculateArea = function (radius) {
+    return Math.PI * Math.pow(radius, 2);
+  }
+
+  console.log(calculateArea(2));
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -78,7 +89,9 @@ function exercise_03() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  let calculateArea = (radius) => Math.PI * Math.pow(radius, 2);
+
+  console.log(calculateArea(2));
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -99,7 +112,15 @@ function exercise_04() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  function isValidEmail(email) {
+    if (email.split("@").length > 2 || !email.includes("@") || !(email.lastIndexOf(".")>email.indexOf("@"))) {
+      return false;
+    } else {
+      return true;
+    }
+  } 
+
+  console.log(isValidEmail("hliz.jones@gmail.com"));
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -120,7 +141,13 @@ function exercise_05() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  function greet (name, message = "Hello") {
+    return message + " " + name;
+  }
+
+  console.log(greet("Hannah", "Howdy"));
+  console.log(greet("Hannah"));
+
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -144,8 +171,8 @@ function exercise_06() {
     console.log(message);
   }
 
-  showMessage();
-  console.log(message);
+  showMessage(); //Local
+  console.log(message); //Global
 
   /*
 
@@ -174,7 +201,20 @@ function exercise_07() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  function incrementCounter () {
+    let counter = 0;
+    counter++;
+    console.log(counter);
+  }
+
+  incrementCounter();
+  console.log(`---------`);
+  incrementCounter();
+  
+ /*We cannot acces counter outside the function because it is confined 
+ to the scope of the function. The variable counter only exists within 
+ the {} after incrementCounter ().*/
+
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -193,7 +233,14 @@ function exercise_08() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  function makeMultiplier (multiplier) {
+    return function (num) {
+      return num * multiplier
+    }
+  }
+
+  console.log(makeMultiplier(2)(4));
+  console.log(makeMultiplier(3)(3));
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -220,7 +267,63 @@ function exercise_09() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  // My first attempt
+
+  function factorial (n) {
+    if (n < 0) {
+      console.log("Bad number input");
+      return;
+    } let result = n
+    for (let i = 1; i<n; i++) {
+      result = result*(n-i)
+    }
+    return result;
+  }
+
+  console.log(factorial(4));
+
+  // My second attempt after looking at the solution and realizing my first attempt is not recursive
+
+  function factorial1 (n) {
+    if (n < 0) {
+      console.log("Bad number input");
+      return;
+    } if (n === 0)
+      return 1;
+      return n * factorial1(n-1);
+    }
+  
+  console.log(factorial1(5));
+
+  // Write a recursive function that prints a countdown from a given number to 1. When the number is 1, it should print "Liftoff!"
+
+  function countdown (n) {
+    if (n === 0)
+      return console.log("Liftoff");
+    countdown(n - 1);
+    return console.log(n);
+  }
+
+  countdown(10);
+
+// Write a recursive function that spells my name.
+let name = "Hannah"
+function spellName (n) {
+  if (n === name.length)
+    return console.log(name);
+    console.log (name[n]);
+    return spellName(n+1);
+}
+spellName (0);
+
+// Write a recursive functions that finds the length of a string.
+function findLength(string, n) {
+  if (n === string.lastIndexOf(""))
+    return console.log(n);
+    if (string[n] !== "")
+    return findLength(string, n+1)
+}
+findLength("Supercalifrag", 0)
 
   // CODE IN THE OPEN LINES ABOVE
 }
