@@ -20,7 +20,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   */
 
   // Modify the line of code BELOW to run a different exercise
-  exercise_10();
+  exercise_19();
   // Modify the line of code ABOVE to run a different exercise
 }
 
@@ -307,23 +307,14 @@ function exercise_09() {
   countdown(10);
 
 // Write a recursive function that spells my name.
-let name = "Hannah"
-function spellName (n) {
+
+function spellName (name, n) {
   if (n === name.length)
     return console.log(name);
     console.log (name[n]);
-    return spellName(n+1);
+    return spellName(name, n+1);
 }
-spellName (0);
-
-// Write a recursive functions that finds the length of a string.
-function findLength(string, n) {
-  if (n === string.lastIndexOf(""))
-    return console.log(n);
-    if (string[n] !== "")
-    return findLength(string, n+1)
-}
-findLength("Supercalifrag", 0)
+spellName ("Hannah", 0);
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -341,7 +332,9 @@ function exercise_10() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  fruits.forEach (e => {
+    console.log(e)
+  });
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -359,13 +352,12 @@ function exercise_11() {
   // REPLACE the code below
 
   const numbers = [1, 2, 3, 4, 5];
-  let sum = 0;
 
-  for (let i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
-  }
+  let sum = numbers.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+  });
 
-  console.log(sum); // Outputs: 15
+  console.log(sum);
 
   // REPLACE the code above
 }
@@ -385,7 +377,13 @@ function exercise_12() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  let newArr = numbers.filter(e => {
+    if (e % 2 === 0) {
+      return e;
+    }
+  });
+
+  console.log(newArr);
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -407,7 +405,39 @@ function exercise_13() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  /* Modifying an object passed to a functions affects the orignal object
+  because objects are passed by reference. This means that the object is 
+  referencing where it is stored in memory. Primitive values, on the other
+  hand, are passed by value. So when a primitive value is passed to a function,
+ a copy is made. This ensures the original primitive value remains the same. */
+
+ // Code illustrating passed by reference.
+
+ let obj1 = {name: "Hannah", age: 26};
+ let obj2 = obj1;
+
+function changeAge (obj) {
+  ++obj.age;
+}
+
+changeAge(obj2);
+
+console.log(`Object 2:`, obj2);
+console.log(`Object 1:`, obj1);
+
+// Code illustrating passed by value
+
+function capitalizeStrings (str) {
+  return str.toUpperCase();
+}
+
+let nam1 = "Hannah"
+capitalizeStrings(nam1)
+
+let nam2 = capitalizeStrings(nam1);
+
+console.log(`Original Name: ${nam1}`);
+console.log(`New Name Created: ${nam2}`);
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -425,7 +455,14 @@ function exercise_14() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  let book = {name: "Throne of Glass", author: "SJM", yearPublished: 2012 }
+
+  function addProperty (obj, property, value) {
+   return obj[property] = value;
+  }
+
+  addProperty(book, "rating", 5);
+  console.log(book);
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -451,7 +488,39 @@ function exercise_15() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  let name = "Bob"
+  let user = users.find(e => {
+     if (e.name === name) { 
+      return e;
+  } 
+})
+
+console.log(user)
+
+console.log(`-----------------`);
+
+let nameValue = "Bob"
+let userFound = users.find(e => e.name === nameValue);
+if (userFound) {
+  console.log(userFound);
+} else {
+  console.log(`No results`);
+}
+
+console.log(`-----------------`);
+
+function findUser (name, arr, property) {
+  let user = arr.find(e => e[property] === name);
+if (user) {
+  console.log(user);
+  return user;
+} else {
+  console.log(`No results`);
+  return null;
+}
+}
+
+findUser("Bob", users, "name");
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -474,7 +543,11 @@ function exercise_16() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  Object.entries(person).forEach(e => {
+    console.log(e[0],":", e[1]);
+  });
+
+
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -493,7 +566,28 @@ function exercise_17() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  // First attempt
+function capitalizeStrings (arr) {
+  let newArray = [];
+for (let i = 0; i < arr.length; i++) {
+ newArray.push(arr[i] = (arr[i]).replace(((arr[i])[0]), ((arr[i])[0].toUpperCase())));
+}
+return newArray;
+}
+
+let names = ["hannah", "holly", "shane", "sheila"];
+
+console.log(capitalizeStrings(names));
+
+// With map() method
+
+function capitalization (arr) {
+  return arr.map(function (name) {
+    return name.replace(name[0], name[0].toUpperCase());
+  });
+}
+
+console.log(capitalization(names));
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -516,7 +610,12 @@ function exercise_18() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  function power (base, exponent = 2) {
+    return Math.pow(base, exponent);
+  }
+
+  console.log(power(2,2));
+  console.log(power(2));
 
   // CODE IN THE OPEN LINES ABOVE
 }
@@ -537,7 +636,9 @@ function exercise_19() {
   */
   // CODE IN THE OPEN LINES BELOW
 
-  const placeholder = "Delete this line and code here";
+  (function () {
+console.log("My name is Hannah.")
+ })();
 
   // CODE IN THE OPEN LINES ABOVE
 }
